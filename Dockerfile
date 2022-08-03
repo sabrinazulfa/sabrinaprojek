@@ -1,3 +1,4 @@
-FROM node:16 
-COPY app.js . 
-RUN app.js --init CMD ["app.js"]
+FROM php:7.3.3-apache
+RUN apt-get update && apt-get upgrade -y
+RUN docker-php-ext-install mariadb
+EXPOSE 80
